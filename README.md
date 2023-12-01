@@ -2,7 +2,7 @@
 
 ## 🛠️🖥️ Pré-requisitos do Ambiente em sua máquina.
 - Certifique-se de ter o Node.js instalado: [Node.js](https://nodejs.org/).
-- Intale o Yarn a partir da versão: [Yarn 1.22]([https://nodejs.org/](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable).
+- Intale o Yarn a partir da versão: [Yarn 1.22](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable).
 - Garanta que possua um cliente de banco de dados: [MySQL Workbench](https://dev.mysql.com/downloads/) ou qualquer outro.
 - Para testar a utilização da API, utilize um cliente de API REST: [Insomnia](https://insomnia.rest/download) ou outro cliente que desejar.
 
