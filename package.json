@@ -1,0 +1,12 @@
+{
+  "name": "pipoca-agil-back",
+  "version": "1.0.0",
+  "description": "- Certifique-se de ter o Node.js instalado: [Node.js](https://nodejs.org/).\r - Intale o Yarn a partir da versão: [Yarn 1.22](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable).\r - Garanta que possua um cliente de banco de dados: [MySQL Workbench](https://dev.mysql.com/downloads/) ou qualquer outro.\r - Para testar a utilização da API, utilize um cliente de API REST: [Insomnia](https://insomnia.rest/download) ou outro cliente que desejar.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
