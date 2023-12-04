@@ -4,6 +4,7 @@
 - Certifique-se de ter o Node.js instalado: [Node.js](https://nodejs.org/).
 - Intale o Yarn a partir da versão: [Yarn 1.22](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable).
 - Garanta que possua um cliente de banco de dados: [MySQL Workbench](https://dev.mysql.com/downloads/) ou qualquer outro.
+- Garanta que tenha o Docker instalado: [Docker Descktop](https://www.docker.com/products/docker-desktop/) .
 - Para testar a utilização da API, utilize um cliente de API REST: [Insomnia](https://insomnia.rest/download) ou outro cliente que desejar.
 
 ### ⚙️🖥️ Configurando o Projeto em sua máquina
@@ -11,7 +12,7 @@
 1. Clone este repositório em sua máquina localmente:
    ```text
    
-   git clone https://github.com/johnsontavares/backend-pipoca-agil.git
+   git clone https://github.com/SquadLuzRosa/pipoca-agil-back.git
    
    ```
      
@@ -27,6 +28,21 @@
     JWT_SECRET=<chave_secreta>
      
    ```
+
+## Configurando o Docker
+1. Baixe a imagem do MYSQL
+   ```bash
+   # Intall iamge of mySQL
+   
+   docker pull mysql
+   ```
+2. Inicie o container do banco de dados MYSQL
+```bash
+# to run docker iamge of mySQL
+   docker run -p 3306:3306 --name name_of_database -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
+```
+
+
 ### 🚩 Iniciando o Servidor local
 1. No terminal do projeto execute o comando para baixar todas as dependências do projeto:
    ```text
@@ -44,6 +60,15 @@
 
 ### 📍 Iniciando o teste de Rotas
 Usando o Insomnia você poderá acessar/testar todas as rotas do servidor. Mas lembre-se de utilizar a URL base `http://localhost:3001  ou  http://localhost:<porta_do_servidor>` para todas as requisições.
+
+#### Testes
+   ```bash
+   # Testes unitários
+
+   yarn test
+   
+   ```
+
 
 ## 📚 Documentação do projeto
 Abaixo está a documentação da API/Endpoints do site
