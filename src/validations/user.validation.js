@@ -17,35 +17,35 @@ export const userDataValidation = async (req, res) => {
     if(!req.name || req.name == null || req.name == undefined || req.name == ''|| req.name.replace(" ","") == '' || req.name.replace(" ","").length == 0){
         
         return JSON.stringify({
-            "error_status": 400,
+            "error_status": 403,
             "error_menssage": "Nome é obrigatório"
         });
     }
 
     if(!req.email){
         return JSON.stringify({
-            "error_status": 400,
+            "error_status": 403,
             "error_menssage": "E-mail é obrigatório"
         });
     }
     
     if(!req.phone){
         return JSON.stringify({
-            "error_status": 400,
+            "error_status": 403,
             "error_menssage": "Telefone é obrigatório"
         });
     }
 
     if(!req.dateOfBirth){
         return JSON.stringify({
-            "error_status": 400,
+            "error_status": 403,
             "error_menssage": "Data de nascimento é obrigatória"
         });
     }
 
     if(!req.password){
         return JSON.stringify({
-            "error_status": 400,
+            "error_status": 403,
             "error_menssage": "Senha é obrigatória"
         });
     }
@@ -53,7 +53,7 @@ export const userDataValidation = async (req, res) => {
     if(!req.confirmPassword){
        
         return JSON.stringify({
-            "error_status": 400,
+            "error_status": 403,
             "error_menssage": "Confirmação de Senha é obrigatória"
         });
     }
@@ -146,6 +146,12 @@ export const userDataValidation = async (req, res) => {
                 "error_menssage": "Número de telefone inválido"
             });
         }
+        if (phoneUser < 9) { 
+            return JSON.stringify({
+                "error_status": 400,
+                "error_menssage": "Número de telefone inválido"
+            });
+        }
 
 
     }
@@ -171,7 +177,7 @@ export const userDataValidation = async (req, res) => {
 
         if ((dtyerNow - parseInt(dtYear)) < 18 ){
             return JSON.stringify({
-                "error_status": 400,
+                "error_status": 401,
                 "error_menssage": "Cadastro inválido, usuário menor de idade"
             });
         }    
@@ -313,24 +319,31 @@ export const userDataValidation = async (req, res) => {
 
     if(req.confirmPassword !== req.password){
         return JSON.stringify({
-            "error_status": 400,
+            "error_status": 401,
             "error_menssage": "As senhas não conferem"
         });
     }
 
+
     const emailUser = await getEmailUser(req.email);
     const phoneUser = await getPhoneUser(req.phone);
 
-
+    // if(!emailUser){
+    //     return JSON.stringify({
+    //         "error_status": 400,
+    //         "error_menssage": "E-mail não encontrado"
+    //     });
+    // }    
     if(emailUser){
         return JSON.stringify({
-            "error_status": 400,
+            "error_status": 409,
             "error_menssage": "E-mail já cadastrado"
         });
         
+
     }else if(phoneUser){
         return JSON.stringify({
-            "error_status": 400,
+            "error_status": 409,
             "error_menssage": "Número de telefone já cadastrado"
         });
     }else{

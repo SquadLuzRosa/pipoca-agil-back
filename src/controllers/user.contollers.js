@@ -8,7 +8,7 @@ import bcrypt from "bcrypt";
 
 export const create = async (req, res) => {
     try{
-        console.log('Creating')
+        console.log('Creating', req.body.email)
         const validateUserData = await userDataValidation(req.body);
         console.log(validateUserData)
         // await userValidation.validate(req.body);

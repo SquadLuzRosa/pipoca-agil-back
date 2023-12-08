@@ -8,7 +8,6 @@
     "dev": "nodemon ./src/index.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
-  
   "dependencies": {
     "@babel/core": "^7.23.5",
     "@babel/preset-env": "^7.23.5",
