@@ -27,24 +27,28 @@ export const createUser =  async (data) => {
 
 
 export const getEmailUser = async (email) => {
-    const user = await prisma.user.findUnique({
-        where: {
-            email
-        },
-        select: {
-            id: true,
-            name: true,
-            email: true,
-            phone: true,
-            dateOfBirth: true,
-            password: false,
-            createdAt: true,
-            updatedAt: true,
-        }
-
-    })
-
-    return user;
+    try {
+        const user = await prisma.user.findUnique({
+            where: {
+                email: "teste@gmail.com"
+            },
+            select: {
+                id: true,
+                name: true,
+                email: true,
+                phone: true,
+                dateOfBirth: true,
+                password: false,
+                createdAt: true,
+                updatedAt: true,
+            }
+    
+        })
+    
+        return user    
+    } catch (error) {
+        console.log(error)
+    }
 };
 
 export const getPhoneUser = async (phone) => {
